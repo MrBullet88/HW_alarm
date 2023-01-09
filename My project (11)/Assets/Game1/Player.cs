@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private GameObject _player;
     [SerializeField] private float _playerSpeed;
-   
 
-    
-    void Update()
+    private void Update()
     {
         if (Input.GetKey(KeyCode.A))
         {
