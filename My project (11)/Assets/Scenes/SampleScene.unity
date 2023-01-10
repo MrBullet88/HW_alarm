@@ -266,11 +266,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 63737321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d351879e91e1fc647877be81be8dc63f, type: 3}
+  m_Script: {fileID: 11500000, guid: b97170479af9e154fb637afd9eaeb0ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 63737321}
-  _playerSpeed: 4
+  _playerSpeed: 5
 --- !u!1 &103346315
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,7 +792,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85ad09d594d21484a9575b83ca3dd807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _signaling: {fileID: 966883897}
+  _volumeChanger: {fileID: 966883899}
   _animator: {fileID: 824107285}
 --- !u!61 &824107282
 BoxCollider2D:
