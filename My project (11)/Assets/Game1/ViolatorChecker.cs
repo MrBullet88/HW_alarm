@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class ViolatorChecker : MonoBehaviour
 {
-    [SerializeField] private GameObject _signaling;
+    [SerializeField] private VolumeChanger _volumeChanger;
     [SerializeField] private Animator _animator;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _signaling.GetComponent<VolumeChanger>().IncreaseVolume();
-        _animator.SetBool("IsAlarmOn", true);
+        _volumeChanger.IncreaseVolume();
+        _animator.SetBool(AnimatorAlarmController.Params.IsAlarmOn, true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _signaling.GetComponent<VolumeChanger>().DecreaseVolume();
-        _animator.SetBool("IsAlarmOn", false);
+        _volumeChanger.DecreaseVolume();
+        _animator.SetBool(AnimatorAlarmController.Params.IsAlarmOn, false);
+    }
+}
+public static class AnimatorAlarmController
+{
+    public static class Params
+    {
+        public const string IsAlarmOn = "IsAlarmOn";
     }
 }
