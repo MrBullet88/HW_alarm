@@ -13,13 +13,11 @@ public class VolumeChanger : MonoBehaviour
     private bool _isAlarmOn = false;
     private Coroutine _volumeCoroutine;
 
-    private void Start()
-    {
-        _currentVolume= 0;
-    }
-
     public void StartChangeVolume(float targetVolume)
     {
+        if (_volumeCoroutine != null)
+            StopCoroutine(_volumeCoroutine);
+
         _volumeCoroutine = StartCoroutine(ChangeVolume(targetVolume));
     }
 
@@ -36,11 +34,6 @@ public class VolumeChanger : MonoBehaviour
 
     public void DecreaseVolume()
     {
-        if(_currentVolume < _maxVolume)
-        {
-            StopCoroutine(_volumeCoroutine);
-        }
-
         StartChangeVolume(_minVolume);
     }
 
