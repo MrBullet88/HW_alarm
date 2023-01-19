@@ -266,11 +266,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 63737321}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b97170479af9e154fb637afd9eaeb0ad, type: 3}
+  m_Script: {fileID: 11500000, guid: d37c2612ad54ccf4a922a64dd684e403, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 63737321}
-  _playerSpeed: 5
 --- !u!1 &103346315
 GameObject:
   m_ObjectHideFlags: 0
@@ -773,8 +771,9 @@ GameObject:
   - component: {fileID: 824107282}
   - component: {fileID: 824107281}
   - component: {fileID: 824107285}
+  - component: {fileID: 824107286}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Alarm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -907,6 +906,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &824107286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824107280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3136b9b03a3bf640b023e4d5e68bfad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _animator: {fileID: 824107285}
+  PlayerChecked:
+    m_PersistentCalls:
+      m_Calls: []
+  PlayerLost:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &966883897
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,7 +937,7 @@ GameObject:
   - component: {fileID: 966883900}
   - component: {fileID: 966883899}
   m_Layer: 0
-  m_Name: Signaling
+  m_Name: VolumeChanger
   m_TagString: Untagged
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -953,6 +971,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 966883900}
+  _alarm: {fileID: 824107286}
 --- !u!82 &966883900
 AudioSource:
   m_ObjectHideFlags: 0

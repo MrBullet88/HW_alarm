@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class ViolatorChecker : MonoBehaviour
+public class Alarm : MonoBehaviour
 {
-    [SerializeField] private VolumeChanger _volumeChanger;
     [SerializeField] private Animator _animator;
 
+    public UnityEvent PlayerChecked;
+    public UnityEvent PlayerLost;
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        _volumeChanger.IncreaseVolume();
+        PlayerChecked?.Invoke();
         _animator.SetBool(AnimatorAlarmController.Params.IsAlarmOn, true);
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        _volumeChanger.DecreaseVolume();
+        PlayerLost?.Invoke();
         _animator.SetBool(AnimatorAlarmController.Params.IsAlarmOn, false);
     }
 }
+
 public static class AnimatorAlarmController
 {
     public static class Params
@@ -26,3 +30,4 @@ public static class AnimatorAlarmController
         public const string IsAlarmOn = "IsAlarmOn";
     }
 }
+

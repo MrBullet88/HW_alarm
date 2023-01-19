@@ -5,8 +5,9 @@ using UnityEngine;
 public class VolumeChanger : MonoBehaviour
 {
     [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private Alarm _alarm;
     
-    private float _recoveryRate = 0.4f;
+    private float _recoveryRate = 0.6f;
     private float _currentVolume;
     private float _maxVolume = 1;
     private float _minVolume = 0;
@@ -52,5 +53,17 @@ public class VolumeChanger : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private void OnEnable()
+    {
+        _alarm.PlayerChecked.AddListener(IncreaseVolume);
+        _alarm.PlayerLost.AddListener(DecreaseVolume);
+    }
+
+    private void OnDisable()
+    {
+        _alarm.PlayerChecked.RemoveListener(IncreaseVolume);
+        _alarm.PlayerLost.RemoveListener(DecreaseVolume);
     }
 }
